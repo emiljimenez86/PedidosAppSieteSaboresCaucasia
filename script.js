@@ -727,6 +727,23 @@ function generarResumenCierre() {
                     border: 1px solid #ddd;
                     margin: 0 2px;
                 }
+                .boton-impresion {
+                    text-align: center;
+                    margin-top: 10px;
+                    padding: 10px;
+                }
+                .boton-impresion button {
+                    padding: 8px 15px;
+                    font-size: 14px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                .boton-impresion button:hover {
+                    background-color: #0056b3;
+                }
                 @media print {
                     body {
                         padding: 0;
@@ -735,6 +752,9 @@ function generarResumenCierre() {
                     .resumen {
                         border: none;
                         padding: 0;
+                    }
+                    .boton-impresion {
+                        display: none;
                     }
                 }
             </style>
@@ -808,10 +828,8 @@ function generarResumenCierre() {
             <div class="footer">
                 <p style="margin: 0;">Pedidos App by Emil Jiménez</p>
             </div>
-            <div class="no-print" style="text-align: center; margin-top: 10px;">
-                <button onclick="window.print()" style="padding: 5px 10px; font-size: 12px; cursor: pointer;">
-                    Imprimir o Guardar como PDF
-                </button>
+            <div class="boton-impresion">
+                <button onclick="window.print()">Imprimir o Guardar como PDF</button>
             </div>
         </body>
         </html>
