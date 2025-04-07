@@ -35,6 +35,41 @@
             margin-top: auto;
             background-color: #0a192f;
         }
+        /* Estilos para el select de productos */
+        .form-select optgroup {
+            background-color: #FFD700;
+            color: #000;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .form-select option {
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        /* Estilos para nombres largos */
+        .form-select option {
+            white-space: normal !important;
+            word-wrap: break-word;
+            max-width: 100%;
+        }
+        /* Estilos para móvil */
+        @media (max-width: 768px) {
+            .form-select optgroup {
+                font-size: 1.1em;
+                padding: 8px;
+                margin-top: 15px;
+            }
+            .form-select option {
+                font-size: 0.9em;
+                padding: 8px 5px;
+            }
+            .form-select {
+                height: auto;
+                max-height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -77,7 +112,7 @@
                 <select id="producto" class="form-select" onchange="mostrarSalsas()">
                     <option value="">Seleccione un producto...</option>
                     <!-- Entradas -->
-                    <optgroup label="Entradas">
+                    <optgroup label="ENTRADAS">
                         <option value="Carpaccio">Carpaccio - $32.000</option>
                         <option value="Ceviche Porteño">Ceviche Porteño - $32.000</option>
                         <option value="Tiradito de la casa">Tiradito de la casa - $32.000</option>
@@ -88,7 +123,7 @@
                         <option value="Croquetas de posta negra">Croquetas de posta negra - $28.000</option>
                     </optgroup>
                     <!-- Especialidades -->
-                    <optgroup label="Especialidades">
+                    <optgroup label="ESPECIALIDADES">
                         <option value="Lomito volador al estilo Thay">Lomito volador al estilo Thay - $41.000</option>
                         <option value="Suprema a la Naranja">Suprema a la Naranja - $42.000</option>
                         <option value="Pechuga Imperial">Pechuga Imperial - $42.000</option>
@@ -107,7 +142,7 @@
                         <option value="Celler">Celler - $53.000</option>
                     </optgroup>
                     <!-- Pescados y Mariscos -->
-                    <optgroup label="Pescados y Mariscos">
+                    <optgroup label="PESCADOS Y MARISCOS">
                         <option value="Salmón Pasión">Salmón Pasión - $55.000</option>
                         <option value="Salmón Cuatro Quesos">Salmón Cuatro Quesos - $57.000</option>
                         <option value="Salmón Siete sabores">Salmón Siete sabores - $59.000</option>
@@ -117,7 +152,7 @@
                         <option value="Mojarra al Grill">Mojarra al Grill - $60.000</option>
                     </optgroup>
                     <!-- Parrilla -->
-                    <optgroup label="Parrilla">
+                    <optgroup label="PARRILLA">
                         <option value="Entrecotte">Entrecotte - $60.000</option>
                         <option value="Picaña">Picaña - $60.000</option>
                         <option value="Churrasco">Churrasco - $51.000</option>
@@ -125,20 +160,20 @@
                         <option value="Picada para 4">Picada para 4 - $135.000</option>
                     </optgroup>
                     <!-- Arroces -->
-                    <optgroup label="Arroces">
+                    <optgroup label="ARROCES">
                         <option value="Chaufa de Mariscos">Chaufa de Mariscos - $56.000</option>
                         <option value="Arroz con Mariscos">Arroz con Mariscos - $56.000</option>
                         <option value="Chaufa de lomo y res">Chaufa de lomo y res - $50.000</option>
                     </optgroup>
                     <!-- Pastas -->
-                    <optgroup label="Pastas">
+                    <optgroup label="PASTAS">
                         <option value="Pasta & Filetto">Pasta & Filetto - $49.000</option>
                         <option value="Pastas a la Carbonera">Pastas a la Carbonera - $42.000</option>
                         <option value="Pastas con Mariscos">Pastas con Mariscos - $52.000</option>
                         <option value="Pastas en crema de ají y pollo saltado">Pastas en crema de ají y pollo saltado - $52.000</option>
                     </optgroup>
                     <!-- Sushis -->
-                    <optgroup label="Sushis">
+                    <optgroup label="SUSHIS">
                         <option value="Sushi Filadelfia">Sushi Filadelfia - $42.000</option>
                         <option value="Sushi Dragón Roll">Sushi Dragón Roll - $42.000</option>
                         <option value="Sushi 7 Roll Tempura">Sushi 7 Roll Tempura - $42.000</option>
@@ -147,7 +182,7 @@
                         <option value="Sushi Emperador">Sushi Emperador - $42.000</option>
                     </optgroup>
                     <!-- Express -->
-                    <optgroup label="Express">
+                    <optgroup label="EXPRESS">
                         <option value="Papas siete sabores">Papas siete sabores - $38.000</option>
                         <option value="Creps Siete Sabores">Creps Siete Sabores - $35.000</option>
                         <option value="Hamburguesa de la casa">Hamburguesa de la casa - $35.000</option>
@@ -155,7 +190,7 @@
                         <option value="Ensalada Cesar">Ensalada Cesar - $35.000</option>
                     </optgroup>
                     <!-- Bebidas -->
-                    <optgroup label="Bebidas">
+                    <optgroup label="BEBIDAS">
                         <option value="Soda saborizada">Soda saborizada - $12.000</option>
                         <option value="Jugos Naturales">Jugos Naturales - $9.000</option>
                         <option value="Juegos Especiales">Juegos Especiales - $13.000</option>
