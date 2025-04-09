@@ -65,6 +65,9 @@ const precios = {
     "Sushi Dragón Roll Tempura": 42000,
     "Sushi Lima Roll": 42000,
     "Sushi Emperador": 42000,
+    "Sushi Lima roll tempura": 42000,
+    "Sushi Filadelfia tempura": 42000,
+    "Sushi Emperador Tempura": 42000,
 
     // Acompañamientos y Otros
     "Papas siete sabores": 38000,
@@ -959,21 +962,65 @@ function mostrarTotalVentas() {
 // Función para buscar productos
 function buscarProductos() {
     const busqueda = document.getElementById('buscarProducto').value.toLowerCase();
+    const resultadosDiv = document.getElementById('resultadosBusqueda');
     const selectProducto = document.getElementById('producto');
     const opciones = selectProducto.getElementsByTagName('option');
     
-    // Mostrar todas las opciones primero
-    for (let i = 0; i < opciones.length; i++) {
-        opciones[i].style.display = '';
-    }
+    // Limpiar resultados anteriores
+    resultadosDiv.innerHTML = '';
     
-    // Ocultar las que no coinciden con la búsqueda
     if (busqueda) {
+        let resultadosEncontrados = false;
+        
+        // Buscar en todas las opciones
         for (let i = 0; i < opciones.length; i++) {
             const texto = opciones[i].text.toLowerCase();
-            if (!texto.includes(busqueda)) {
-                opciones[i].style.display = 'none';
+            if (texto.includes(busqueda) && opciones[i].value) {
+                resultadosEncontrados = true;
+                const divResultado = document.createElement('div');
+                divResultado.className = 'p-2 border-bottom';
+                divResultado.style.cursor = 'pointer';
+                divResultado.innerHTML = opciones[i].text;
+                
+                // Agregar evento click para seleccionar el producto
+                divResultado.addEventListener('click', function() {
+                    document.getElementById('producto').value = opciones[i].value;
+                    document.getElementById('buscarProducto').value = opciones[i].text;
+                    resultadosDiv.style.display = 'none';
+                    mostrarSalsas();
+                });
+                
+                // Efecto hover
+                divResultado.addEventListener('mouseover', function() {
+                    this.style.backgroundColor = '#f8f9fa';
+                });
+                divResultado.addEventListener('mouseout', function() {
+                    this.style.backgroundColor = 'white';
+                });
+                
+                resultadosDiv.appendChild(divResultado);
             }
         }
+        
+        // Mostrar u ocultar el contenedor de resultados
+        resultadosDiv.style.display = resultadosEncontrados ? 'block' : 'none';
+    } else {
+        resultadosDiv.style.display = 'none';
     }
 }
+
+// Agregar el evento de escucha para la búsqueda
+document.addEventListener('DOMContentLoaded', function() {
+    const buscarProducto = document.getElementById('buscarProducto');
+    buscarProducto.addEventListener('input', buscarProductos);
+    
+    // Ocultar resultados cuando se hace clic fuera
+    document.addEventListener('click', function(event) {
+        const resultadosDiv = document.getElementById('resultadosBusqueda');
+        const buscarProducto = document.getElementById('buscarProducto');
+        
+        if (!buscarProducto.contains(event.target) && !resultadosDiv.contains(event.target)) {
+            resultadosDiv.style.display = 'none';
+        }
+    });
+});

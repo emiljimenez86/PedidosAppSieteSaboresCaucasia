@@ -70,6 +70,18 @@
                 max-height: 300px;
             }
         }
+        /* Estilos para resultados de búsqueda */
+        #resultadosBusqueda {
+            color: #000000 !important;
+        }
+        #resultadosBusqueda div {
+            color: #000000 !important;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        #resultadosBusqueda div:hover {
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 <body>
@@ -92,16 +104,31 @@
             <div class="col-md-6 mb-3">
                 <label for="mesa" class="form-label">Seleccionar Mesa:</label>
                 <select id="mesa" class="form-select">
-                    <option value="Mesa 1">Mesa 1</option>
-                    <option value="Mesa 2">Mesa 2</option>
-                    <option value="Mesa 3">Mesa 3</option>
-                    <option value="Mesa 4">Mesa 4</option>
-                    <option value="Mesa 5">Mesa 5</option>
-                    <option value="Mesa 6">Mesa 6</option>
-                    <option value="Mesa 7">Mesa 7</option>
-                    <option value="Mesa 8">Mesa 8</option>
-                    <option value="Mesa 9">Mesa 9</option>
-                    <option value="Mesa 10">Mesa 10</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="B3">B3</option>
+                    <option value="B4">B4</option>
+                    <option value="B5">B5</option>
+                    <option value="B6">B6</option>
+                    <option value="B7">B7</option>
+                    <option value="B8">B8</option>
+                    <option value="B9">B9</option>
+                    <option value="B10">B10</option>
+                    <option value="B11">B11</option>
+                    <option value="B12">B12</option>
+                    <option value="B13">B13</option>
+                    <option value="B14">B14</option>
+                    <option value="B15">B15</option>
+                    <option value="B16">B16</option>
+                    <option value="B17">B17</option>
+                    <option value="B18">B18</option>
+                    <option value="B19">B19</option>
+                    <option value="B20">B20</option>
+                    <option value="B21">B21</option>
+                    <option value="B22">B22</option>
+                    <option value="B23">B23</option>
+                    <option value="B24">B24</option>
+                    <option value="B25">B25</option>
                     <option value="DOMICILIO">DOMICILIO</option>
                     <option value="RECOGER">Recoger en el lugar</option>
                 </select>
@@ -109,7 +136,13 @@
             
             <div class="col-md-6 mb-3">
                 <label for="producto" class="form-label">Seleccionar Producto:</label>
-                <select id="producto" class="form-select" onchange="mostrarSalsas()">
+                <div class="position-relative">
+                    <input type="text" id="buscarProducto" class="form-control mb-2" placeholder="Buscar producto...">
+                    <div id="resultadosBusqueda" class="position-absolute w-100" style="display: none; z-index: 1000; background: white; border: 1px solid #ddd; border-radius: 4px; max-height: 300px; overflow-y: auto;">
+                        <!-- Los resultados se mostrarán aquí -->
+                    </div>
+                </div>
+                <select id="producto" class="form-select" onchange="mostrarSalsas()" style="display: none;">
                     <option value="">Seleccione un producto...</option>
                     <!-- Entradas -->
                     <optgroup label="ENTRADAS">
@@ -180,6 +213,9 @@
                         <option value="Sushi Dragón Roll Tempura">Sushi Dragón Roll Tempura - $42.000</option>
                         <option value="Sushi Lima Roll">Sushi Lima Roll - $42.000</option>
                         <option value="Sushi Emperador">Sushi Emperador - $42.000</option>
+                        <option value="Sushi Lima roll tempura">Sushi Lima roll tempura - $42.000</option>
+                        <option value="Sushi Filadelfia tempura">Sushi Filadelfia tempura - $42.000</option>
+                        <option value="Sushi Emperador Tempura">Sushi Emperador Tempura - $42.000</option>
                     </optgroup>
                     <!-- Express -->
                     <optgroup label="EXPRESS">
@@ -242,7 +278,9 @@
             
             <div class="mb-3">
                 <label for="productosSeleccionados" class="form-label">Productos Seleccionados</label>
-                <div id="productosSeleccionados" class="p-3" style="background-color: #f0f8ff; border: 1px solid #b0c4de; border-radius: 8px; min-height: 50px;"></div>
+                <div id="productosSeleccionados" class="p-3" style="background-color: #f0f8ff; border: 2px solid #b3d9ff; border-radius: 8px; min-height: 50px; color: #000000 !important;">
+                    <!-- Los productos seleccionados se mostrarán aquí -->
+                </div>
             </div>
         </div>
         
